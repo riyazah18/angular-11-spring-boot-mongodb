@@ -1,4 +1,4 @@
-package com.bezkoder.spring.data.mongodb.controller;
+package com.riyaz.spring.data.mongodb.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bezkoder.spring.data.mongodb.model.Tutorial;
-import com.bezkoder.spring.data.mongodb.repository.TutorialRepository;
+import com.riyaz.spring.data.mongodb.model.Tutorial;
+import com.riyaz.spring.data.mongodb.repository.TutorialRepository;
+
+
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
@@ -32,6 +34,7 @@ public class TutorialController {
   @GetMapping("/tutorials")
   public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
     try {
+    	System.out.println("getAllTutorials() -- >> invoked");
       List<Tutorial> tutorials = new ArrayList<Tutorial>();
 
       if (title == null)
